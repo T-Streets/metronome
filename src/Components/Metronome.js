@@ -8,7 +8,7 @@ export default class Metronome extends Component {
         this.state = {
             playing: false,
             count: 0,
-            bpm: 100 || '',
+            bpm: 100,
             beatsPerMeasure: 4,
         }
         
