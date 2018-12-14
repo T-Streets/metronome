@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import '../metronome.scss'
+import click1 from '../click1.wav'
+import click2 from '../click1.wav'
 
 export default class Metronome extends Component {
     constructor(){
@@ -11,21 +13,24 @@ export default class Metronome extends Component {
             bpm: 100,
             beatsPerMeasure: 4,
         }
+
+        this.click1 = new Audio(click1)
+        this.click2 = new Audio(click2)
         
     }
 
     handleBpmChange = e => {
-        e.preventDefault()
         const bpm = e.target.value
         this.setState({ bpm })
-        console.log(this.state.bpm)
     }
 
     handleSubmit = e => {
         e.preventDefault()
-        const bpm = e.target.value
-        this.setState({ bpm })
         console.log(this.state.bpm)
+    }
+
+    startStop = () => {
+        this.click1.play()
     }
 
     render() {
@@ -48,7 +53,9 @@ export default class Metronome extends Component {
                     </form>
 
                 </div>
-                <button>{playing ? 'Stop' : 'Play'}</button>
+                <button onClick={this.startStop}>
+                    {playing ? 'Stop' : 'Play'}
+                </button>
                 
             </div>
         )
