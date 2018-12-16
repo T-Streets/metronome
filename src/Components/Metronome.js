@@ -47,8 +47,12 @@ export default class Metronome extends Component {
                         value={bpm} 
                         onChange={this.handleBpmChange}
                     />
-                    <form className='bpm-input' onSubmit={this.handleSubmit}>
-                        <input type='number' />
+                    <form className='bpm-input' >
+                        <input 
+                            type='number' 
+                            value={bpm}
+                            onChange={this.handleBpmChange} 
+                        />
                         <input type='submit' value='Set'/>
                     </form>
 
